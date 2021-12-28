@@ -41,14 +41,17 @@ def check_all_messages(message):
     response('I\'m doing fine, and you?', ['how', 'are', 'you', 'doing'], required_words=['how'])
     response('You\'re welcome!', ['thank', 'thanks'], single_response=True)
     response('Thank you!', ['i', 'love', 'code', 'palace'], required_words=['code', 'palace'])
+    response('Jarvis', ['what', 'is' , 'your', 'name'])
+    response('You are Ishan', ['who','am','i'])
 
     # Longer responses
+    response(long.R_TIME, ['what', 'is' , 'the' , 'time' ,])
     response(long.R_ADVICE, ['give', 'advice'], required_words=['advice'])
     response(long.R_EATING, ['what', 'you', 'eat'], required_words=['you', 'eat'])
 
     best_match = max(highest_prob_list, key=highest_prob_list.get)
     #uncomment line below to see probability
-    print(highest_prob_list)
+    #print(highest_prob_list)
     # print(f'Best match = {best_match} | Score: {highest_prob_list[best_match]}')
 
     return long.unknown() if highest_prob_list[best_match] < 1 else best_match
